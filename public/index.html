@@ -35,9 +35,20 @@
     <style type="text/css">
         /* Fallback CSS */
         html,body,a,img{border:0;outline:0;margin:0;padding:0;}
-        html,body,section,nav,div.bg-primary {
-            background-color: #f4c308;
+        html,body,.section,.navbar,body .bg-primary {
+            background-color: #f4c308 !important;
             color: #000;
+        }
+        body .bg-secondary{
+            background-color: #fff !important;
+        }
+        #info > .info-container .separation {
+            border-bottom: 30px solid #f4c308;
+        }
+        .btn.btn-primary {
+            border: 2px solid #f4c308 !important;
+            background-color: #000;
+            color: #f4c308 !important;
         }
         .navbar,.section{display:block;}
     </style>
@@ -112,7 +123,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 text-center">
                     <div class="logo mx-auto rounded-circle">
-                        <img src="./images/code_society.svg" border="0" />
+                        <img src="./images/code_society.svg" border="0" height="200" width="200" />
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -124,7 +135,7 @@
                 </div>
             </div>
             <div class="floating-arrow">
-                <img src="./images/arrow.svg" id="scroll-down" style="cursor: pointer;" />
+                <img src="./images/arrow.svg" id="scroll-down" style="cursor: pointer;" border="0" height="90" width="130" />
             </div>
         </div>
     </section>
@@ -136,7 +147,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img src="./images/rocket.svg" border="0" />
+                            <img src="./images/rocket.svg" border="0" height="250" width="250" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
@@ -182,7 +193,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img src="images/matrix.svg" border="0" />
+                            <img src="images/matrix.svg" border="0" height="250" width="73" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
@@ -204,7 +215,7 @@
                 <div class="row flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img src="./images/books.svg" border="0" />
+                            <img src="./images/books.svg" border="0" height="250" width="250" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation right">
