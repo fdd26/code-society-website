@@ -25,11 +25,28 @@
     <meta name="twitter:image" content="https://codesociety.xyz/images/code_society_round.png" />
     <meta name="theme-color" content="#007bff" />
 
+    <!-- Preconnect over HTTPS handshake -->
+    <link rel="preconnect" href="https://code.jquery.com" />
+    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+
     <script type="text/javascript">//<!--
         document.createElement("section");
         document.createElement("nav");
         document.createElement("article");
     // --></script>
+
+    <style type="text/css">
+        /* Fallback CSS */
+        html,body,a,img{border:0;outline:0;margin:0;padding:0;}
+        html,body,section,nav,div.bg-primary {
+            background-color: #f4c308;
+            color: #000;
+        }
+        .navbar,.section{display:block;width:100%;}
+    </style>
 
     <!-- Boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -56,9 +73,8 @@
         if (document.addEventListener) {
             document.addEventListener("DOMContentLoaded", function() {
                 if (window.Lenis) {
-                    var lenis = new Lenis({ autoRaf: true }),
-                        s = document.getElementById("scroll-down");
-                    if (s) { s.addEventListener("click", function(e) { lenis.scrollTo("#info") }); }
+                    var lenis = new Lenis({ autoRaf: true });
+                    document.getElementById("scroll-down").addEventListener("click", function(e) { lenis.scrollTo("#info") });
                 }
             });
         }
@@ -73,23 +89,23 @@
 </head>
 
 <body class="vh-100">
-    <section id="header" class="bg-primary">
+    <section id="header" class="section bg-primary">
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col p-2">
                         <a href="https://github.com/Code-Society-Lab">
-                            <img alt="GitHub" src="./images/github.svg" border="0" height="40" width="40" />
+                            <img src="./images/github.svg" border="0" height="40" width="40" />
                         </a>
                     </div>
                     <div class="col p-2">
                         <a href="https://discord.gg/FzgwHD7Am3">
-                            <img alt="Discord" src="./images/discord.svg" border="0" height="40" width="40" />
+                            <img src="./images/discord.svg" border="0" height="40" width="40" />
                         </a>
                     </div>
                     <div class="col p-2">
                         <a href="https://matrix.to/#/#codesociety:matrix.org">
-                            <img alt="Matrix" src="./images/matrix_icon.svg" border="0" height="40" width="40" />
+                            <img src="./images/matrix_icon.svg" border="0" height="40" width="40" />
                         </a>
                     </div>
                 </div>
@@ -99,7 +115,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 text-center">
                     <div class="logo mx-auto rounded-circle">
-                        <img alt="Code Society" src="./images/code_society.svg" border="0" />
+                        <img src="./images/code_society.svg" border="0" />
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -111,19 +127,19 @@
                 </div>
             </div>
             <div class="floating-arrow">
-                <img alt="Scroll down" src="./images/arrow.svg" id="scroll-down" style="cursor: pointer;" />
+                <img src="./images/arrow.svg" id="scroll-down" style="cursor: pointer;" />
             </div>
         </div>
     </section>
 
-    <section id="info" class="bg-secondary">
+    <section id="info" class="section bg-secondary">
         <div class="container-fluid info-container d-flex flex-fill">
             <div class="flex-fill">
                 <!-- Our Goal Section -->
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img alt="Rocket" src="./images/rocket.svg" border="0" />
+                            <img src="./images/rocket.svg" border="0" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
@@ -146,7 +162,7 @@
                 <div class="row flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img alt="Robot" src="./images/robot.svg" border="0" width="200" height="200" style="width:200px;height:200px;" />
+                            <img src="./images/robot.svg" border="0" width="200" height="200" style="width:200px;height:200px;" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation right">
@@ -169,7 +185,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img alt="Matrix" src="images/matrix.svg" border="0" />
+                            <img src="images/matrix.svg" border="0" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
@@ -191,7 +207,7 @@
                 <div class="row flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <img alt="Books" src="./images/books.svg" border="0" />
+                            <img src="./images/books.svg" border="0" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation right">
@@ -216,3 +232,4 @@
 </body>
 
 </html>
+
