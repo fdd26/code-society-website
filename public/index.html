@@ -40,13 +40,16 @@
     // --></script>
 
     <style type="text/css">
-        /* Fallback CSS */
+        /* Fallback CSS Reset */
         html,body,a,img{border:0;outline:0;margin:0;padding:0;}
+        html,body,div,p,a,img,.navbar,.section{box-sizing:border-box;}
+
+        /* Fallback CSS */
         html,body,.section,.navbar,body .bg-primary {
             background-color: #f4c308 !important;
             color: #000;
         }
-        body .bg-secondary{
+        body .bg-secondary {
             background-color: #fff !important;
         }
         #info > .info-container .separation {
@@ -56,6 +59,13 @@
             border: 2px solid #f4c308 !important;
             background-color: #000;
             color: #f4c308 !important;
+        }
+        #header > .banner .logo {
+            background-color: #000;
+        }
+        #header > .banner .logo img {
+            max-width:200px;
+            max-height:200px;
         }
         .navbar,.section{display:block;width:100%;}
     </style>
@@ -112,7 +122,7 @@
 
 <body class="vh-100">
     <section id="header" class="section bg-primary">
-        <nav class="navbar">
+        <nav id="nav" class="navbar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col p-2">
@@ -133,14 +143,14 @@
                 </div>
             </div>
         </nav>
-        <div class="container banner d-flex flex-fill">
+        <div class="container banner d-flex flex-fill"><a id="code-society" name="code-society"></a>
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 text-center">
                     <div class="logo mx-auto rounded-circle">
                         <img alt="Code Society" src="./images/code_society.svg" border="0" height="200" width="200" />
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div id="code-society-content" class="col-lg-8">
                     <p class="title">Code Society</p>
                     <p class="description">We are a friendly community of programmers and scientists of all levels
                         and backgrounds from all around the world!
@@ -154,22 +164,22 @@
         </div>
     </section>
 
-    <section id="info" class="section bg-secondary">
-        <div class="container-fluid info-container d-flex flex-fill">
+    <section id="info" class="section bg-secondary"><a id="Info" name="Info"></a>
+        <div id="info-section" class="container-fluid info-container d-flex flex-fill">
             <div class="flex-fill">
                 <!-- Our Goal Section -->
-                <div class="row">
+                <div id="goal-section" class="row"><a id="Our-Goal" name="Our-Goal"></a>
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Rocket" src="./images/rocket.svg" border="0" height="250" width="250" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
-                        <div class="row flex-column align-items-center box">
-                            <div class="col-md-6">
+                        <div id="goal-content" class="row flex-column align-items-center box">
+                            <div class="content-title col-md-6">
                                 <p class="title">Our goal</p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="content-description col-md-6">
                                 <p class="description">The Code Society has for goal of helping programmers,
                                     scientists and other to find each other to discuss programming, new
                                     technologies, science, and more! We also encourage collaboration on
@@ -181,18 +191,18 @@
                     </div>
                 </div>
                 <!-- Grace Framework Section -->
-                <div class="row flex-row-reverse">
+                <div id="grace-framework-section" class="row flex-row-reverse"><a id="Grace-Framework" name="Grace-Framework"></a>
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Robot" src="./images/robot.svg" border="0" width="200" height="200" style="width:200px;height:200px;" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation right">
-                        <div class="row flex-column align-items-center my-5">
-                            <div class="col-md-6">
+                        <div id="grace-content" class="row flex-column align-items-center my-5">
+                            <div class="content-title col-md-6">
                                 <p class="title">Grace Framework</p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="content-description col-md-6">
                                 <p class="description">
                                     <a href="https://github.com/Code-Society-Lab/grace-framework">Grace Framework</a> is an opinionated,
                                     extensible Discord bot framework built on top of discord.py. It comes with a various
@@ -204,18 +214,18 @@
                     </div>
                 </div>
                 <!-- Matrix.py Section -->
-                <div class="row">
+                <div id="matrix-section" class="row"><a id="Matrix" name="Matrix"></a>
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Matrix" src="./images/matrix.svg" border="0" height="250" width="73" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
-                        <div class="row flex-column align-items-center my-5">
-                            <div class="col-md-6">
+                        <div id="matrix-content" class="row flex-column align-items-center my-5">
+                            <div class="content-title col-md-6">
                                 <p class="title">matrix.py</p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="content-description col-md-6">
                                 <p class="description"><a href="https://github.com/Code-Society-Lab/matrixpy">matrix.py</a>
                                     is a lightweight and intuitive Python library to build bots on the Matrix protocol.
                                     It provides a clean, decorator-based API similar to popular event-driven frameworks,
@@ -226,18 +236,18 @@
                     </div>
                 </div>
                 <!-- Resources Section -->
-                <div class="row flex-row-reverse">
+                <div id="resources-section" class="row flex-row-reverse"><a id="Resources" name="Resources"></a>
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Books" src="./images/books.svg" border="0" height="250" width="250" />
                         </div>
                     </div>
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center separation right">
+                    <div id="resources-content" class="col-lg-6 d-flex justify-content-center align-items-center separation right">
                         <div class="row flex-column align-items-center my-5">
-                            <div class="col-md-6">
+                            <div class="content-title col-md-6">
                                 <p class="title">Resources</p>
                             </div>
-                            <div class="col-md-6">
+                            <div class="content-description col-md-6">
                                 <p class="description">Our <a href="https://resources.codesociety.xyz">library</a>
                                     is a collection of resources put together by the members of
                                     the Code Society for various programming and software development
