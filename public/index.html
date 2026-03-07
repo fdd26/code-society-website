@@ -96,18 +96,50 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/9.6.2/firebase-ui-auth.css" />
 
     <!-- Lenis -->
+    <!--
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.11/dist/lenis.css" />
     <script type="module" src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js" defer="defer"></script>
+    -->
     <script type="text/javascript">//<!--
+        function scrollToElement(q) {
+            if (typeof q==="string") { q=document.getElementById(""+q); }
+            if (q) {
+                if (q.scrollIntoView) {
+                    if ("scrollBehavior" in document.documentElement.style) {
+                        q.scrollIntoView({ "behavior": "smooth", "block": "start" });
+                    } else {
+                        q.scrollIntoView(true);
+                    }
+                } else if (q.offsetTop) {
+                    window.scrollTo(0, q.offsetTop);
+                }
+            }
+        }
+
         if (document.addEventListener) {
             document.addEventListener("DOMContentLoaded", function() {
+                var L=window.location,
+                    // Avoid XSS
+                    h=(L.hash || "#").substr(1).replaceAll(/[^A-Za-z0-9\-\_]+/gmi,""),
+                    s=document.getElementById("scroll-down");
+
+                scrollToElement(h);
+
+                if (s) {
+                    s.addEventListener("click", function(e) {
+                        scrollToElement("info");
+                        L.hash="#info";
+                    });
+                }
+
+                /*
                 if (window.Lenis) {
                     var lenis = new Lenis({ autoRaf: true }),
-                        s = document.getElementById("scroll-down");
-
+                        
                     if (s)
                         s.addEventListener("click", function(e) { lenis.scrollTo("#info"); });
                 }
+                */
             });
         }
     // --></script>
@@ -143,14 +175,14 @@
                 </div>
             </div>
         </nav>
-        <div class="container banner d-flex flex-fill"><a id="code-society" name="code-society"></a>
+        <div class="container banner d-flex flex-fill">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 text-center">
                     <div class="logo mx-auto rounded-circle">
                         <img alt="Code Society" src="./images/code_society.svg" border="0" height="200" width="200" />
                     </div>
                 </div>
-                <div id="code-society-content" class="col-lg-8">
+                <div id="code-society-content" class="col-lg-8"><a id="code-society" name="code-society"></a>
                     <p class="title">Code Society</p>
                     <p class="description">We are a friendly community of programmers and scientists of all levels
                         and backgrounds from all around the world!
@@ -168,14 +200,14 @@
         <div id="info-section" class="container-fluid info-container d-flex flex-fill">
             <div class="flex-fill">
                 <!-- Our Goal Section -->
-                <div id="goal-section" class="row"><a id="Our-Goal" name="Our-Goal"></a>
+                <div id="goal-section" class="row">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Rocket" src="./images/rocket.svg" border="0" height="250" width="250" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
-                        <div id="goal-content" class="row flex-column align-items-center box">
+                        <div id="goal-content" class="row flex-column align-items-center box"><a id="our-goal" name="our-goal"></a>
                             <div class="content-title col-md-6">
                                 <p class="title">Our goal</p>
                             </div>
@@ -191,14 +223,14 @@
                     </div>
                 </div>
                 <!-- Grace Framework Section -->
-                <div id="grace-framework-section" class="row flex-row-reverse"><a id="Grace-Framework" name="Grace-Framework"></a>
+                <div id="grace-framework-section" class="row flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Robot" src="./images/robot.svg" border="0" width="200" height="200" style="width:200px;height:200px;" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation right">
-                        <div id="grace-content" class="row flex-column align-items-center my-5">
+                        <div id="grace-content" class="row flex-column align-items-center my-5"><a id="grace-framework" name="grace-framework"></a>
                             <div class="content-title col-md-6">
                                 <p class="title">Grace Framework</p>
                             </div>
@@ -214,14 +246,14 @@
                     </div>
                 </div>
                 <!-- Matrix.py Section -->
-                <div id="matrix-section" class="row"><a id="Matrix" name="Matrix"></a>
+                <div id="matrix-section" class="row">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Matrix" src="./images/matrix.svg" border="0" height="250" width="73" />
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex justify-content-center align-items-center separation left">
-                        <div id="matrix-content" class="row flex-column align-items-center my-5">
+                        <div id="matrix-content" class="row flex-column align-items-center my-5"><a id="matrix" name="matrix"></a>
                             <div class="content-title col-md-6">
                                 <p class="title">matrix.py</p>
                             </div>
@@ -236,13 +268,13 @@
                     </div>
                 </div>
                 <!-- Resources Section -->
-                <div id="resources-section" class="row flex-row-reverse"><a id="Resources" name="Resources"></a>
+                <div id="resources-section" class="row flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <img alt="Books" src="./images/books.svg" border="0" height="250" width="250" />
                         </div>
                     </div>
-                    <div id="resources-content" class="col-lg-6 d-flex justify-content-center align-items-center separation right">
+                    <div id="resources-content" class="col-lg-6 d-flex justify-content-center align-items-center separation right"><a id="resources" name="resources"></a>
                         <div class="row flex-column align-items-center my-5">
                             <div class="content-title col-md-6">
                                 <p class="title">Resources</p>
